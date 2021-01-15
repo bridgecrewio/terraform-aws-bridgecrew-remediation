@@ -3,7 +3,7 @@ name: Verify and Bump
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
 

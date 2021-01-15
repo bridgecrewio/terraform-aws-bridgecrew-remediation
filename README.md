@@ -1,6 +1,6 @@
 # terraform-aws-bridgecrew-remediations
 
-[![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations)
+[![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations)
 [![Latest Release](https://img.shields.io/github/release/bridgecrewio/terraform-aws-bridgecrew-remediations.svg)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
 [![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridgecrew.io)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-cloudtrail.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-cloudtrail/releases/latest)
