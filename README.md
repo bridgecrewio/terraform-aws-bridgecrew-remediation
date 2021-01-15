@@ -1,11 +1,11 @@
-# terraform-aws-bridgecrew-remediations
+# terraform-aws-bridgecrew-remediation
 
-[![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations)
-[![Latest Release](https://img.shields.io/github/release/bridgecrewio/terraform-aws-bridgecrew-remediations.svg)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
+[![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation)
+[![Latest Release](https://img.shields.io/github/release/bridgecrewio/terraform-aws-bridgecrew-remediation.svg)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation/releases/latest)
 [![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridgecrew.io)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-remediations.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-remediation.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/bridgecrewio/terraform-aws-bridgecrew-remediations/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=bridgecrewio%2Fterraform-aws-bridgecrew-remediations&benchmark=CIS+AWS+V1.2)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/bridgecrewio/terraform-aws-bridgecrew-remediation/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=bridgecrewio%2Fterraform-aws-bridgecrew-remediation&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.iå/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
@@ -17,11 +17,11 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Usage
 
-Include **module.remediations.tf** this repository as a module in your existing Terraform code:
+Include **module.remediation.tf** this repository as a module in your existing Terraform code:
 
 ```terraform
-module "remediations" {
-  source      = "bridgecrewio/bridgecrew-remediations/aws"
+module "remediation" {
+  source      = "bridgecrewio/bridgecrew-remediation/aws"
   api-token   = var.apitoken
   version     = "v0.1.1"
 }
@@ -73,19 +73,19 @@ No requirements.
 
 Check out these related projects.
 
-- [terraform-aws-bridgecrew-remediations](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations) - S3 buckets
+- [terraform-aws-bridgecrew-remediation](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation) - S3 buckets
 
 ## Help
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/issues).
+File a GitHub [issue](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
@@ -123,8 +123,8 @@ under the License.
 [github]: https://github.com/bridgecrewio
 [linkedin]: https://www.linkedin.com/in/bridgecrew/
 [twitter]: https://twitter.com/bridgecrew
-[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-bridgecrew-remediations&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-bridgecrew-remediations&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
-[share_email]: mailto:?subject=terraform-aws-bridgecrew-remediations&body=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
+[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-bridgecrew-remediation&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-bridgecrew-remediation&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
+[share_email]: mailto:?subject=terraform-aws-bridgecrew-remediation&body=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
