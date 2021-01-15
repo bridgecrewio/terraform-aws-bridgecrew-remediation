@@ -73,7 +73,7 @@ No requirements.
 
 Check out these related projects.
 
-- [terraform-aws-bridgecrew-remediation](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation) - S3 buckets
+- [terraform-aws-bridgecrew-remediation](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation) 
 
 ## Help
 
