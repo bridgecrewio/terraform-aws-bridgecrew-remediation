@@ -1,56 +1,132 @@
-## Naming
+# terraform-aws-bridgecrew-remediations
 
-Seems to be inconsistent naming with some object - lambda not having unique names
+[![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations)
+[![Latest Release](https://img.shields.io/github/release/bridgecrewio/terraform-aws-bridgecrew-remediations.svg)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
+[![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridgecrew.io)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-cloudtrail.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-cloudtrail/releases/latest)
+![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.12.0-blue.svg)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/bridgecrewio/terraform-aws-bridgecrew-cloudtrail/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=bridgecrewio%2Fterraform-aws-bridgecrew-cloudtrail&benchmark=CIS+AWS+V1.2)
+[![pre-commit](https://img.shields.iå/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
-## IAM
+Terraform module - for Bridgecrew Remediations
 
-I removed a section of the iam as it is only relevant if your using cf.
+---
 
-```Iam
-{
-            "Action": [
-                "cloudformation:CreateChangeSet"
-            ],
-            "Resource": "arn:aws:cloudformation:us-east-2:aws:transform/*",
-            "Effect": "Allow"
-        },
-        {
-            "Action": [
-                "cloudformation:UpdateStack"
-            ],
-            "Resource": "${var.cf_update_path}",
-            "Effect": "Allow"
-        },
- 
+It's 100% Open Source and licensed under the [APACHE2](LICENSE).
+
+## Usage
+
+![alt text](./diagram/remediations.png)
+
+Include **module.remediations.tf** this repository as a module in your existing Terraform code:
+
+```terraform
+module "remediations" {
+  source      = "bridgecrewio/bridgecrew-remediations/aws"
+  api-token   = var.apitoken
+  version     = "v0.1.1"
+}
 ```
 
-## Imports
+The module expect the Bridgecrew platform api token to be supplied.
 
-For debugging:
-```
-terraform import aws_sqs_queue.RemediationsDLQ https://sqs.us-east-2.amazonaws.com/481212720429/patreon-RemediationsDLQ-1DGKD4S9ORHFO.fifo
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
 
-terraform import aws_sqs_queue.InboundRemediations https://sqs.us-east-2.amazonaws.com/481212720429/patreon-InboundRemediations-13WM2ST22347Y.fifo
+No requirements.
 
-terraform import aws_iam_role.RemediationFunctionRole patreon-RemediationFunctionRole-1WBHRVFHOJVLL
+## Providers
 
-terraform import aws_iam_role_policy.RemediationFunctionRolePolicy0 patreon-RemediationFunctionRole-1WBHRVFHOJVLL:RemediationFunctionRolePolicy0
+| Name | Version |
+|------|---------|
+| aws | n/a |
 
-terraform import aws_iam_role_policy_attachment.ViewOnlyAccess patreon-RemediationFunctionRole-1WBHRVFHOJVLL/arn:aws:iam::aws:policy/job-function/ViewOnlyAccess
+## Inputs
 
-terraform import aws_iam_role_policy_attachment.SecurityAudit patreon-RemediationFunctionRole-1WBHRVFHOJVLL/arn:aws:iam::aws:policy/SecurityAudit
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| api-token | n/a | `string` | n/a | yes |
+| batch\_size | n/a | `number` | `1` | no |
+| common\_tags | n/a | `map` | `{}` | no |
+| fifo\_queue | Is queue fifo? | `bool` | `true` | no |
+| kms\_data\_key\_reuse\_period\_seconds | n/a | `number` | `300` | no |
+| lambdaZipName | n/a | `string` | `"prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"` | no |
+| maximum\_batching\_window\_in\_seconds | n/a | `number` | `0` | no |
+| organizationID | n/a | `string` | `"890234264427"` | no |
+| outboundRemediationsEndpoint | n/a | `string` | `"https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"` | no |
+| runtime | n/a | `string` | `"nodejs10.x"` | no |
+| snsNotifyTopic | n/a | `string` | `"handle-customer-actions"` | no |
+| templateBucket | n/a | `string` | `"bc-code-artifacts-890234264427-"` | no |
+| templateVersion | n/a | `string` | `"0.3.37"` | no |
 
-terraform import aws_iam_role_policy_attachment.AWSLambdaSQSQueueExecutionRole patreon-RemediationFunctionRole-1WBHRVFHOJVLL/arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole
+## Outputs
 
-terraform import aws_iam_role_policy_attachment.AWSLambdaBasicExecutionRole patreon-RemediationFunctionRole-1WBHRVFHOJVLL/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+| Name | Description |
+|------|-------------|
+| InboundRemediations | n/a |
+| InboundRemediationsARN | SQS ARN of inbound Bridgecrew remote remediations messages |
+| RemediationsDLQ | n/a |
+| TemplateVersion | Deployed CF stack version |
 
-terraform import aws_ssm_parameter.api-token /bridgecrew/api-toke
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-terraform import aws_sqs_queue_policy.InboundRemediations https://sqs.us-east-2.amazonaws.com/481212720429/patreon-InboundRemediations-13WM2ST22347Y.fifo
+## Related Projects
 
-terraform import aws_lambda_function.BridgecrewRemoteRemediation BridgecrewRemoteRemediation
+Check out these related projects.
 
-aws sqs list-event-source-mappings --lambda_name BridgecrewRemoteRemediation
+- [terraform-aws-bridgecrew-remediations](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations) - S3 buckets
 
-terraform import aws_lambda_event_source_mapping.InboundRemediationsMapping 4aa8b152-35ea-4ba1-b3fc-3618f4c196ed
-```
+## Help
+
+**Got a question?**
+
+File a GitHub [issue](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/issues).
+
+## Contributing
+
+### Bug Reports & Feature Requests
+
+Please use the [issue tracker](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/issues) to report any bugs or file feature requests.
+
+## Copyrights
+
+Copyright © 2021 Bridgecrew
+
+## License
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+See [LICENSE](LICENSE) for full details.
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+<https://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+
+### Contributors
+
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage]
+
+[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
+[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
+[github]: https://github.com/bridgecrewio
+[linkedin]: https://www.linkedin.com/in/bridgecrew/
+[twitter]: https://twitter.com/bridgecrew
+[share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-bridgecrew-remediations&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-bridgecrew-remediations&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
+[share_email]: mailto:?subject=terraform-aws-bridgecrew-remediations&body=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations
