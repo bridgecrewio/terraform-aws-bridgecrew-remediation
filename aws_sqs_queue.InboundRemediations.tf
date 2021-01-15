@@ -1,0 +1,15 @@
+resource "aws_sqs_queue" "InboundRemediations" {
+  name                              = local.inbound_queue_name
+  fifo_queue                        = var.fifo_queue
+  kms_data_key_reuse_period_seconds = var.kms_data_key_reuse_period_seconds
+  redrive_policy = jsonencode(
+    {
+      deadLetterTargetArn = aws_sqs_queue.RemediationsDLQ.arn
+      maxReceiveCount     = 5
+    }
+  )
+
+  visibility_timeout_seconds = 1200
+  tags                       = var.common_tags
+}
+
