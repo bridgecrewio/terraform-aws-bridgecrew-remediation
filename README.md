@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations)
 [![Latest Release](https://img.shields.io/github/release/bridgecrewio/terraform-aws-bridgecrew-remediations.svg)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
 [![Maintained by Bridgecrew.io](https://img.shields.io/badge/maintained%20by-bridgecrew.io-blueviolet)](https://bridgecrew.io)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-cloudtrail.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-cloudtrail/releases/latest)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/bridgecrewio/terraform-aws-bridgecrew-remediations.svg?label=latest)](https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediations/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.12.0-blue.svg)
 [![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/bridgecrewio/terraform-aws-bridgecrew-remediations/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=bridgecrewio%2Fterraform-aws-bridgecrew-remediations&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.iå/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
