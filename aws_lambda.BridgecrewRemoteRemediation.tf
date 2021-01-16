@@ -7,7 +7,7 @@ resource "aws_lambda_function" "BridgecrewRemoteRemediation" {
   runtime       = var.runtime
   s3_bucket     = "${var.templateBucket}${local.region}"
   s3_key        = var.lambdaZipName
-  timeout       = 900
+  timeout       = var.Lambda_timeout
   environment {
     variables = {
       "BC_API_TOKEN"                   = "/bridgecrew/api-token"

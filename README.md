@@ -58,18 +58,20 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| api-token | n/a | `string` | n/a | yes |
+| Lambda\_timeout | n/a | `number` | `900` | no |
+| api-token | Bridgecrew Platform API key | `string` | n/a | yes |
 | batch\_size | n/a | `number` | `1` | no |
 | common\_tags | n/a | `map` | `{}` | no |
+| customer\_name | Customer name identifier - e.g. Patreon, Bridgecrew | `string` | n/a | yes |
 | fifo\_queue | Is queue fifo? | `bool` | `true` | no |
 | kms\_data\_key\_reuse\_period\_seconds | n/a | `number` | `300` | no |
-| lambdaZipName | n/a | `string` | `"prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"` | no |
+| lambdaZipName | The Object to get from the Bucket | `string` | `"prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"` | no |
 | maximum\_batching\_window\_in\_seconds | n/a | `number` | `0` | no |
 | organizationID | n/a | `string` | `"890234264427"` | no |
 | outboundRemediationsEndpoint | n/a | `string` | `"https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"` | no |
 | runtime | n/a | `string` | `"nodejs10.x"` | no |
 | snsNotifyTopic | n/a | `string` | `"handle-customer-actions"` | no |
-| templateBucket | n/a | `string` | `"bc-code-artifacts-890234264427-"` | no |
+| templateBucket | Public bucket to get the Lambda zipped code from | `string` | `"bc-code-artifacts-890234264427-"` | no |
 | templateVersion | n/a | `string` | `"0.3.37"` | no |
 
 ## Outputs

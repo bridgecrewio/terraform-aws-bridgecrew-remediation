@@ -14,8 +14,9 @@ variable "fifo_queue" {
 }
 
 variable "api-token" {
-  type      = string
-  sensitive = true
+  type        = string
+  description = "Bridgecrew Platform API key"
+  sensitive   = true
 }
 
 variable "organizationID" {
@@ -24,13 +25,15 @@ variable "organizationID" {
 }
 
 variable "templateBucket" {
-  type    = string
-  default = "bc-code-artifacts-890234264427-"
+  type        = string
+  description = "Public bucket to get the Lambda zipped code from"
+  default     = "bc-code-artifacts-890234264427-"
 }
 
 variable "lambdaZipName" {
-  type    = string
-  default = "prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"
+  type        = string
+  description = "The Object to get from the Bucket"
+  default     = "prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"
 }
 
 variable "outboundRemediationsEndpoint" {
@@ -61,4 +64,15 @@ variable "maximum_batching_window_in_seconds" {
 variable "runtime" {
   type    = string
   default = "nodejs10.x"
+}
+
+variable "customer_name" {
+  type        = string
+  description = "Customer name identifier - e.g. Patreon, Bridgecrew"
+}
+
+
+variable "Lambda_timeout" {
+  type    = number
+  default = 900
 }
