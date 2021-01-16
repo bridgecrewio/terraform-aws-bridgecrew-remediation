@@ -10,10 +10,9 @@ variable "common_tags" {
   default     = {}
 }
 
-variable "api-token" {
+variable "api_token" {
   type        = string
   description = "Bridgecrew Platform API key"
-  sensitive   = true
 }
 
 variable "customer_name" {

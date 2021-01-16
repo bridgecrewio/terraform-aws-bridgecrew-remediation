@@ -1,5 +1,5 @@
 module "remediations" {
   source        = "../../"
-  api-token     = var.apitoken
+  api_token     = var.apitoken
   customer_name = var.customer_name
 }
