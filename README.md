@@ -29,9 +29,13 @@ module "remediation" {
 
 The module expect the Bridgecrew platform API token to be supplied.
 
+On Windows:
+
 ```powershell
 $env:TF_VAR_apitoken="your-platform-token"
 ```
+
+On *nix:
 
 ```shell
 export TF_VAR_apitoken="your-platform-token"

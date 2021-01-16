@@ -59,6 +59,6 @@ variable "maximum_batching_window_in_seconds" {
 }
 
 variable "runtime" {
-  type=string
-  default="nodejs10.x"
+  type    = string
+  default = "nodejs10.x"
 }

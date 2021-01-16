@@ -16,5 +16,3 @@ resource "aws_sqs_queue_policy" "InboundRemediations" {
   )
   queue_url = aws_sqs_queue.InboundRemediations.id
 }
-
-
