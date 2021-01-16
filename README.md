@@ -27,7 +27,17 @@ module "remediation" {
 }
 ```
 
-The module expect the Bridgecrew platform api token to be supplied.
+The module expect the Bridgecrew platform API token to be supplied.
+
+```powershell
+$env:TF_VAR_apitoken="your-platform-token"
+```
+
+```shell
+export TF_VAR_apitoken="your-platform-token"
+```
+
+Or you can leave it to be prompted at your console.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

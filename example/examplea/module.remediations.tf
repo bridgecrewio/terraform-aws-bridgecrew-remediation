@@ -1,4 +1,4 @@
 module "remediations" {
   source    = "../../"
-  api-token = var.api-token
+  api-token = var.apitoken
 }

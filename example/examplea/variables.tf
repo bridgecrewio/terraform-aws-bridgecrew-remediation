@@ -1,4 +1,4 @@
-variable "api-token" {
+variable "apitoken" {
   type      = string
   sensitive = true
 }
