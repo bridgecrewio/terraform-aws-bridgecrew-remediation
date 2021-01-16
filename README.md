@@ -22,7 +22,7 @@ Include **module.remediation.tf** this repository as a module in your existing T
 ```terraform
 module "remediation" {
   source      = "bridgecrewio/bridgecrew-remediation/aws"
-  api-token   = var.apitoken
+  api-token   = var.api_token
   version     = "v0.1.1"
 }
 ```
@@ -32,16 +32,25 @@ The module expect the Bridgecrew platform API token to be supplied.
 On Windows:
 
 ```powershell
-$env:TF_VAR_apitoken="your-platform-token"
+$env:TF_VAR_api_token="your-platform-token"
 ```
 
 On *nix:
 
 ```shell
-export TF_VAR_apitoken="your-platform-token"
+export TF_VAR_api_token="your-platform-token"
 ```
 
-Or you can leave it to be prompted at your console.
+Or you can leave it blank to be prompted at your console.
+
+This module is supported for deployment in the following AWS regions:
+
+* All US regions
+* eu-west-1
+* eu-central-1
+* ap-northeast-1
+
+However, its functionality will work across all AWS regions.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
