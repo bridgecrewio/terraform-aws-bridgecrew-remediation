@@ -12,6 +12,6 @@ output "InboundRemediationsARN" {
 }
 
 output "TemplateVersion" {
-  value       = var.templateVersion
-  description = "Deployed CF stack version"
+  value       = local.template_version
+  description = "Deployed remediation stack version"
 }
