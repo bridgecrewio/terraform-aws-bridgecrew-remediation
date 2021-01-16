@@ -19,4 +19,5 @@ locals {
   runtime                            = "nodejs10.x"
   lambda_timeout                     = 900
   maximum_batching_window_in_seconds = 0
+  profile_str                        = var.aws_profile != null ? "--profile ${var.aws_profile}" : ""
 }

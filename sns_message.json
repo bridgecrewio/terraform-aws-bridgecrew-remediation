@@ -1,0 +1,16 @@
+{
+  "RequestType": "${request_type}",
+  "ServiceToken": "${bridgecrew_sns_topic}",
+  "Source": "Terraform",
+  "StackId": "Terraform",
+  "ResourceProperties": {
+    "ServiceToken": "${bridgecrew_sns_topic}",
+    "Account": "bridgecrew",
+    "IntegrationName": "Terraform",
+    "Type": "AWS_CT_CFG",
+    "ActionType": "NoWriteRemediationActivation",
+    "AWSAccountId": "${account_id}",
+    "TemplateVersion": "${template_version}",
+    "InboundSqs": "${inbound_sqs}"
+  }
+}
