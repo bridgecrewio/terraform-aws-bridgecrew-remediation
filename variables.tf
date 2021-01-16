@@ -4,11 +4,13 @@ variable "kms_data_key_reuse_period_seconds" {
 }
 
 variable "common_tags" {
-  default = {}
+  type        = map(any)
+  description = "Implements a common tagging scheme, attached to all resources that support tags"
+  default     = {}
 }
 
 variable "fifo_queue" {
-  description = "Is queue fifo?"
+  description = "Is this queue fifo?"
   type        = bool
   default     = true
 }
@@ -62,8 +64,9 @@ variable "maximum_batching_window_in_seconds" {
 }
 
 variable "runtime" {
-  type    = string
-  default = "nodejs10.x"
+  description = "Set the runtime for the Remediations Lambda"
+  type        = string
+  default     = "nodejs10.x"
 }
 
 variable "customer_name" {
@@ -71,8 +74,8 @@ variable "customer_name" {
   description = "Customer name identifier - e.g. Patreon, Bridgecrew"
 }
 
-
 variable "Lambda_timeout" {
-  type    = number
-  default = 900
+  description = "Lambda execution timeout"
+  type        = number
+  default     = 900
 }
