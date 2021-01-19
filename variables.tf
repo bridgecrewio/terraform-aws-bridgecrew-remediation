@@ -40,7 +40,7 @@ variable "lambdaZipName" {
 
 variable "outboundRemediationsEndpoint" {
   type    = string
-  default = "https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"
+  default = "https://www.bridgecrew.cloud/api"
 }
 
 variable "snsNotifyTopic" {

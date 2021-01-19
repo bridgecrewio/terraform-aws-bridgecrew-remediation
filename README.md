@@ -68,7 +68,7 @@ No requirements.
 | lambdaZipName | The Object to get from the Bucket | `string` | `"prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"` | no |
 | maximum\_batching\_window\_in\_seconds | n/a | `number` | `0` | no |
 | organizationID | n/a | `string` | `"890234264427"` | no |
-| outboundRemediationsEndpoint | n/a | `string` | `"https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"` | no |
+| outboundRemediationsEndpoint | n/a | `string` | `"https://www.bridgecrew.cloud/api"` | no |
 | runtime | Set the runtime for the Remediations Lambda | `string` | `"nodejs10.x"` | no |
 | snsNotifyTopic | n/a | `string` | `"handle-customer-actions"` | no |
 | templateBucket | Public bucket to get the Lambda zipped code from | `string` | `"bc-code-artifacts-890234264427-"` | no |
