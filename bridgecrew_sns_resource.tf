@@ -1,11 +1,11 @@
 data template_file "message" {
   template = file("${path.module}/sns_message.json")
-  vars = {
+  vars     = {
     request_type         = "Create"
     bridgecrew_sns_topic = local.sns_topic_arn
-    account_id = local.account_id
-    template_version = local.template_version
-    inbound_sqs = aws_sqs_queue.InboundRemediations.id
+    account_id           = local.account_id
+    template_version     = local.template_version
+    inbound_sqs          = aws_sqs_queue.InboundRemediations.id
   }
 }
 
@@ -14,7 +14,11 @@ resource "null_resource" "await_resources" {
     command = "sleep 10"
   }
 
-  depends_on = [aws_sqs_queue.InboundRemediations, aws_sqs_queue.RemediationsDLQ, aws_lambda_function.BridgecrewRemoteRemediation, aws_iam_role.RemediationFunctionRole]
+  depends_on = [
+    aws_sqs_queue.InboundRemediations,
+    aws_sqs_queue.RemediationsDLQ,
+    aws_lambda_function.BridgecrewRemoteRemediation,
+    aws_iam_role.RemediationFunctionRole]
 }
 
 resource null_resource "create_bridgecrew" {
@@ -23,7 +27,8 @@ resource null_resource "create_bridgecrew" {
     working_dir = path.module
   }
 
-  depends_on = [null_resource.await_resources]
+  depends_on = [
+    null_resource.await_resources]
 }
 
 resource null_resource "update_bridgecrew" {
@@ -36,7 +41,9 @@ resource null_resource "update_bridgecrew" {
     working_dir = path.module
   }
 
-  depends_on = [null_resource.create_bridgecrew]
+  depends_on = [
+    null_resource.create_bridgecrew
+  ]
 }
 
 resource null_resource "disconnect_bridgecrew" {
@@ -53,5 +60,7 @@ resource null_resource "disconnect_bridgecrew" {
     working_dir = path.module
   }
 
-  depends_on = [null_resource.create_bridgecrew]
+  depends_on = [
+    null_resource.create_bridgecrew
+  ]
 }
