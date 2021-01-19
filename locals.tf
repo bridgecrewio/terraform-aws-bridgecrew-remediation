@@ -2,12 +2,12 @@ locals {
   # Bridgecrew account to receive notifications
   organization_id                    = "890234264427"
   sns_notify_topic                   = "handle-customer-actions"
-  queue_name                         = "${var.customer_name}-RemediationsDLQ.fifo"
-  inbound_queue_name                 = "${var.customer_name}-InboundRemediations.fifo"
+  queue_name                         = "Bridgecrew-RemediationsDLQ.fifo"
+  inbound_queue_name                 = "Bridgecrew-InboundRemediations.fifo"
   account_id                         = data.aws_caller_identity.current.account_id
   sns_topic_arn                      = "arn:aws:sns:${local.region}:${local.organization_id}:${local.sns_notify_topic}"
   region                             = data.aws_region.current.name
-  role_name                          = "${var.customer_name}-RemediationFunction"
+  role_name                          = "BridgecrewRemoteRemediationFunctionRole"
   queue_principal_arn                = "arn:aws:iam::${local.organization_id}:root"
   function_name                      = "BridgecrewRemoteRemediation"
   fifo_queue                         = true

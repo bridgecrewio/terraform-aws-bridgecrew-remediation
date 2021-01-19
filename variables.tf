@@ -1,7 +1,7 @@
 variable "kms_data_key_reuse_period_seconds" {
-  type    = number
+  type        = number
   description = "The length of time that SQS may use a cached data key before calling KMS again. Lower this value to force more frequent KMS check-ins."
-  default = 300
+  default     = 300
 }
 
 variable "common_tags" {
@@ -18,14 +18,9 @@ variable "api_token" {
   description = "Bridgecrew Platform API key"
 }
 
-variable "customer_name" {
-  type        = string
-  description = "Bridgecrew organization name that you created during account setup."
-}
-
 variable "aws_profile" {
-  type = string
+  type        = string
   description = "The name of the local AWS profile to use to invoke the AWS CLI to send an SNS notification to Bridgecrew. Omit to use the default profile or local environment variables."
-  default = null
+  default     = null
 }
 
