@@ -7,7 +7,7 @@ variable "kms_data_key_reuse_period_seconds" {
 variable "common_tags" {
   type        = map(any)
   description = "Implements a common tagging scheme, attached to all resources that support tags"
-  default     = {
+  default = {
     deployment = "terraform"
     vendor     = "bridgecrew"
   }
@@ -23,4 +23,3 @@ variable "aws_profile" {
   description = "The name of the local AWS profile to use to invoke the AWS CLI to send an SNS notification to Bridgecrew. Omit to use the default profile or local environment variables."
   default     = null
 }
-

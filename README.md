@@ -45,10 +45,10 @@ Or you can leave it blank to be prompted at your console.
 
 This module is supported for deployment in the following AWS regions:
 
-* All US regions
-* eu-west-1
-* eu-central-1
-* ap-northeast-1
+- All US regions
+- eu-west-1
+- eu-central-1
+- ap-northeast-1
 
 However, its functionality will work across all AWS regions.
 
@@ -62,26 +62,17 @@ No requirements.
 | Name | Version |
 |------|---------|
 | aws | n/a |
+| null | n/a |
+| template | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| Lambda\_timeout | Lambda execution timeout | `number` | `900` | no |
-| api-token | Bridgecrew Platform API key | `string` | n/a | yes |
-| batch\_size | n/a | `number` | `1` | no |
-| common\_tags | Implements a common tagging scheme, attached to all resources that support tags | `map(any)` | `{}` | no |
-| customer\_name | Customer name identifier - e.g. Patreon, Bridgecrew | `string` | n/a | yes |
-| fifo\_queue | Is this queue fifo? | `bool` | `true` | no |
-| kms\_data\_key\_reuse\_period\_seconds | n/a | `number` | `300` | no |
-| lambdaZipName | The Object to get from the Bucket | `string` | `"prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"` | no |
-| maximum\_batching\_window\_in\_seconds | n/a | `number` | `0` | no |
-| organizationID | n/a | `string` | `"890234264427"` | no |
-| outboundRemediationsEndpoint | n/a | `string` | `"https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"` | no |
-| runtime | Set the runtime for the Remediations Lambda | `string` | `"nodejs10.x"` | no |
-| snsNotifyTopic | n/a | `string` | `"handle-customer-actions"` | no |
-| templateBucket | Public bucket to get the Lambda zipped code from | `string` | `"bc-code-artifacts-890234264427-"` | no |
-| templateVersion | n/a | `string` | `"0.3.37"` | no |
+| api\_token | Bridgecrew Platform API key | `string` | n/a | yes |
+| aws\_profile | The name of the local AWS profile to use to invoke the AWS CLI to send an SNS notification to Bridgecrew. Omit to use the default profile or local environment variables. | `string` | `null` | no |
+| common\_tags | Implements a common tagging scheme, attached to all resources that support tags | `map(any)` | <pre>{<br>  "deployment": "terraform",<br>  "vendor": "bridgecrew"<br>}</pre> | no |
+| kms\_data\_key\_reuse\_period\_seconds | The length of time that SQS may use a cached data key before calling KMS again. Lower this value to force more frequent KMS check-ins. | `number` | `300` | no |
 
 ## Outputs
 
@@ -90,7 +81,7 @@ No requirements.
 | InboundRemediations | n/a |
 | InboundRemediationsARN | SQS ARN of inbound Bridgecrew remote remediations messages |
 | RemediationsDLQ | n/a |
-| TemplateVersion | Deployed CF stack version |
+| TemplateVersion | Deployed remediation stack version |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
