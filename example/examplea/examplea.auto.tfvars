@@ -1,1 +1,0 @@
-customer_name = "examplea"
