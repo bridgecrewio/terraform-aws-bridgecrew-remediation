@@ -13,7 +13,7 @@ locals {
   fifo_queue                         = true
   template_bucket                    = "bc-code-artifacts-${local.organization_id}-"
   lambda_zip_name                    = "prod/remediations_lambda_c5f16a2212411fd69a5c6a5fe37278617df82f5a.zip"
-  outbound_remediations_endpoint     = "https://dfak3u9wq1.execute-api.us-west-2.amazonaws.com/v1"
+  outbound_remediations_endpoint     = "https://www.bridgecrew.cloud/api"
   template_version                   = "0.3.37"
   batch_size                         = 1
   runtime                            = "nodejs10.x"
