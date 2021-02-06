@@ -13,29 +13,32 @@ jobs:
         python-version: [3.8]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           ref: main
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
+          token: ${{ github.token }}
       - name: "Terraform Init"
         uses: hashicorp/terraform-github-actions@master
         with:
-          tf_actions_version: 0.14.0
+          tf_actions_version: 0.14.5
           tf_actions_subcommand: "init"
           tf_actions_working_dir: "example/examplea"
       - name: "Terraform Validate"
         uses: hashicorp/terraform-github-actions@master
         with:
-          tf_actions_version: 0.14.0
+          tf_actions_version: 0.14.5
           tf_actions_subcommand: "validate"
           tf_actions_working_dir: "example/examplea"
-      - name: Test with Checkov
-        run: |
-          pip install checkov
-          checkov -d .
+      - name: Run Bridgecrew scanner
+        id: BridgecrewScanner
+        uses: bridgecrewio/bridgecrew-action@master
+        with:
+          directory: "example/examplea"
+          framework: terraform
+          soft-fail: "false"
+          output: "cli"
+          api-key-variable: ${{ secrets.BC_API_KEY }}
   version:
     name: versioning
     runs-on: ubuntu-latest
