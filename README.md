@@ -137,7 +137,7 @@ under the License.
 [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [github]: https://github.com/bridgecrewio
-[linkedin]: https://www.linkedin.com/in/bridgecrew/
+[linkedin]: https://www.linkedin.com/company/bridgecrew/
 [twitter]: https://twitter.com/bridgecrew
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-bridgecrew-remediation&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-bridgecrew-remediation&url=https://github.com/bridgecrewio/terraform-aws-bridgecrew-remediation
