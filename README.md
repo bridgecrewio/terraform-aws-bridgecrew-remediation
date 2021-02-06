@@ -72,7 +72,8 @@ No requirements.
 | api\_token | Bridgecrew Platform API key | `string` | n/a | yes |
 | aws\_profile | The name of the local AWS profile to use to invoke the AWS CLI to send an SNS notification to Bridgecrew. Omit to use the default profile or local environment variables. | `string` | `null` | no |
 | common\_tags | Implements a common tagging scheme, attached to all resources that support tags | `map(any)` | <pre>{<br>  "deployment": "terraform",<br>  "vendor": "bridgecrew"<br>}</pre> | no |
-| kms\_data\_key\_reuse\_period\_seconds | The length of time that SQS may use a cached data key before calling KMS again. Lower this value to force more frequent KMS check-ins. | `number` | `300` | no |
+| customer\_name | Customer name identifier - e.g. Patreon, Bridgecrew | `string` | n/a | yes |
+| fifo\_queue | Is this queue fifo? | `bool` | `true` | no |
 
 ## Outputs
 
